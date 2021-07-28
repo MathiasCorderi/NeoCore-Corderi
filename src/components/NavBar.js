@@ -1,17 +1,23 @@
 import React from 'react';
+import './styles/NavBar.css'
+import CartWidget from './CartWidget';
 
 const NavBar = () => {
-    return (
-        <nav>
-             <h1>Neocore</h1>
+    return ( 
+        <nav className='nav'>
+           
+             <h1 c>Neocore</h1>
         <ul>
-            <a href="#"><li>Productos</li></a>
-            <a href="#"><li>Sucursales</li></a>
-            <a href="#"><li>Contactos</li></a>
-
+            <li><a href="#">Productos</a></li>
+            <li><a href="#">Sucursales</a></li>
+            <li><a href="#">Contactos</a></li>
+            <li><CartWidget /></li>
         </ul>
         </nav>
-    );
+        
+);
+
+
 }
 
 export default NavBar;

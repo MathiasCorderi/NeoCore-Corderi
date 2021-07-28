@@ -1,0 +1,26 @@
+.nav ul li a{
+    padding: 40px; 
+    text-decoration: none; 
+    color: white;
+}
+
+.nav ul li {
+    list-style-type: none;
+    display: inline;
+
+}
+
+.nav ul a {
+    text-decoration: none;
+}
+
+.nav h1 {
+    margin-left: 30px;
+}
+
+
+
+.nav {
+    background-color: rgb(66, 0, 66);
+    display: flex;
+}
