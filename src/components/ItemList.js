@@ -1,12 +1,14 @@
 import React from 'react';
 import Item from './Item';
 
-const ItemList = () => {
+const ItemList = (props) => {
    
    
     return (
         <div>
-            <Item />
+             {props.prod.map( p =>
+            <Item producto={p}/>
+             )}
         </div>
     );
 }
