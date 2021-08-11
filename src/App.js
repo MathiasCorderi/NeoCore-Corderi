@@ -3,21 +3,21 @@ import NavBar from './components/NavBar';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer';
 import ItemCount from './components/itemCount';
-import ItemList from './components/ItemList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemDetailContainer from './components/itemDetailContainer';
+import {BrowserRouter} from 'react-router-dom'
+import { Route } from 'react-router-dom';
 
 function App() {
 
-  const onAdd = (count) => {
-    console.log(count)
-  }
-
-  return  <div>
+  return  <BrowserRouter>
     <NavBar /> 
-    <ItemListContainer />
-    <ItemDetailContainer />
-    </div>;
+    <Route path='/' component={ItemListContainer} exact/>
+    <Route path= '/categoria/:id' component={ItemListContainer} exact/>
+    <Route path= '/item/:id' component={ItemDetailContainer} exact/>
+    
+    
+    </BrowserRouter>;
    
 }
 

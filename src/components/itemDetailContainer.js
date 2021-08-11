@@ -1,39 +1,49 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ItemDetail from './itemDetail';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+
 
 const itemDetailContainer = () => {
-    const [stateDetails, setDetails] = useState([])
+    const [stateDetails, setDetails] = useState(false)
+    const params = useParams()
 
+
+    
     const details = [
         {nombre: 'Producto 1',
-        precio: 1000,},
+        precio: 5000, id: '1'},
         {nombre: 'Producto 2',
-        precio: 1500,},
-        {nombre: 'Producto 3',
-        precio: 2000,},
-        {nombre: 'Producto 4',
-        precio: 2500,},
-        {nombre: 'Producto 5',
-        precio: 3000,},
+        precio: 8000, id: '2'},
     ]
 
-    var getItems = () => {
-        return new Promise ((resolve, reject) => {
-            setTimeout(() => {
-               resolve(details); 
-                
-            }, 2000);
-           
-        });
-    }
+    const getItems = () => {
+       
+        const promesa = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            for (const i of details) {
+                if (i.id == params.id) {
+                    resolve(i)
+                }
+            }
+        }, 2000)
+        })
+        return promesa
+        };
 
-    getItems().then((e) => setDetails(e));
+        
+    
+        useEffect(() => { 
+            const promesa = getItems()
+            promesa.then(e=>{
+                setDetails(e);
+            })
+    
+        }) 
+
+        
    
     return (
-        <div>
-            {stateDetails.map( p =>
-            <ItemDetail detalle= {p}/>
-            )}</div>
+            <ItemDetail detalle={stateDetails}/>    
     );
 }
 
