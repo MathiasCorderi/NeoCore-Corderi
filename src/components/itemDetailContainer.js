@@ -11,9 +11,11 @@ const itemDetailContainer = () => {
     
     const details = [
         {nombre: 'Producto 1',
-        precio: 5000, id: '1'},
+        precio: 5000, id: '1',
+        stock: 8},
         {nombre: 'Producto 2',
-        precio: 8000, id: '2'},
+        precio: 8000, id: '2',
+        stock: 6},
     ]
 
     const getItems = () => {

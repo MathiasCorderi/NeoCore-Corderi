@@ -1,11 +1,12 @@
 import React from 'react';
 import './styles/itemCount.css'
+import { Link } from 'react-router-dom';
 
 const {useState} = React;
 
 
 
-const itemCount = ({stock , initial, onAdd}) => {
+const itemCount = ({stock , initial, onAdd, cart}) => {
     const[count, setCount] = useState(initial);
     
 
@@ -27,6 +28,8 @@ const itemCount = ({stock , initial, onAdd}) => {
        }
    }
 
+   if(cart == false) {
+
     return (
 
         <div className='itemCount'>
@@ -41,6 +44,25 @@ const itemCount = ({stock , initial, onAdd}) => {
         
         </div>
     );
+} else {
+
+    return (
+
+        <div className='itemCount'>
+           
+            <h3>{count}</h3>
+            <div className='counterButtons'>
+                <button onClick={restar} >-</button>
+                <button onClick={sumar}>+</button>
+                <br />
+                <Link to='/cart'><button>Confirmar compra</button></Link>
+            </div>
+        
+        </div>
+    );
+
+}
+
 }
 
 export default itemCount;
