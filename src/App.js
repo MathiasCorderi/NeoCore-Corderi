@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {createContext, useState} from 'react';
 import NavBar from './components/NavBar';
 import './App.css';
 import ItemListContainer from './components/ItemListContainer';
@@ -8,10 +8,14 @@ import ItemDetailContainer from './components/itemDetailContainer';
 import {BrowserRouter} from 'react-router-dom'
 import { Route } from 'react-router-dom';
 import Cart from './components/Cart';
+import {CartProvider} from './components/CartContextProvider';
 
 function App() {
 
-  return  <BrowserRouter>
+
+  return  <CartProvider>
+  
+  <BrowserRouter>
     <NavBar /> 
     <Route path='/' component={ItemListContainer} exact/>
     <Route path= '/categoria/:id' component={ItemListContainer} exact/>
@@ -19,8 +23,8 @@ function App() {
     <Route path='/cart'><Cart /></Route>
     
     
-    </BrowserRouter>;
-   
+    </BrowserRouter>
+    </CartProvider>
 }
 
 export default App;
