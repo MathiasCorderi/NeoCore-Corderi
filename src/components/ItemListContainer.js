@@ -1,41 +1,58 @@
 import React, {useState, useEffect} from 'react';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-
+import { firestore } from '../firebase';
 
 const ItemListContainer = () => {
     const [stateProd, setState] = useState([])
     const params = useParams()
-
-    const productos = [
-        {nombre: 'Placa de video 1', precio: 5000, id: '1'},
-        {nombre: 'Placa de video 2', precio: 8000, id: '2'}
-    ];
+    const paramsId = params.id
     
- 
+   
+
+
     useEffect(() => { 
-        const promesa = operacion()
-        promesa.then(json=>{
-            setState(json)
-        })
+       
+
+    const db = firestore
+    const productos = db.collection('items')  
+   
+   
+   
+if (params.id) {
+    
+    const filtro = productos.where('id', '==', paramsId)
+    var query = filtro.get() 
+
+} else {
+   
+    var query = productos.get()
+    }
+
+   
+    
+    var productosParseado = []
+
+   
+    query.then((e) => {e.forEach((f)=>{
+        
+        
+
+        const id = f.id
+        const data = f.data()
+        const dataFinal = {id, ...data} 
+       
+        productosParseado.push(dataFinal)
+
+    })
+
+    setState(productosParseado)
+    console.log(productosParseado)
+    })
+        
+       
 
     }, [])
-
-    
-   const operacion = () => {
-       
-    const promesa = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        if(params.id){
-            resolve(productos.filter(producto=>producto.id == params.id))
-        }
-        else{
-            resolve(productos)
-        }
-    }, 2000)
-    })
-    return promesa
-    };
 
   
     

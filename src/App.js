@@ -9,6 +9,7 @@ import {BrowserRouter} from 'react-router-dom'
 import { Route } from 'react-router-dom';
 import Cart from './components/Cart';
 import {CartProvider} from './components/CartContextProvider';
+import * as firebase from 'firebase'
 
 function App() {
 
