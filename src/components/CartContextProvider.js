@@ -9,9 +9,11 @@ export const CartProvider = (props) => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0)
   const [productos, setProductos] = useState(0)
-  
-  const addToCart = (producto, count, cart) => {
 
+
+  const addToCart = (producto, count, cart) => {
+ 
+    
     var carritoActual = cart
     var bandera = true
 
@@ -40,7 +42,12 @@ export const CartProvider = (props) => {
     
     console.log(carritoActual)
     setCart(carritoActual)
-}
+  }
+  
+  
+
+    
+
 
 const limpiarCart = (cart, setCart) => {
   
@@ -56,13 +63,15 @@ const limpiarCart = (cart, setCart) => {
 
     for (const i of carritoActual) {
         if (i.id == target.id) {
-          carritoActual.splice(i)
+          carritoActual.splice(i, 1)
           setTotal(total - (i.precio * i.inCart))
           setProductos(productos - i.inCart)
         }
     }
     setCart(carritoActual)
   }
+
+
 
 
   return (

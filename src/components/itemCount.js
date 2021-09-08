@@ -9,7 +9,7 @@ const itemCount = ({stock , initial, addCartNumber}) => {
     
     const[count, setCount] = useState(initial);
     const {cart, setCart} = useContext(CartContext);
-   // const [cartNumber, setCartNumber] = useState(false)
+   
     
 
    const sumar = () => {
@@ -34,13 +34,15 @@ const itemCount = ({stock , initial, addCartNumber}) => {
 
         <div className='itemCount'>
            
-            <h3>{count}</h3>
-            <div className='counterButtons'>
-                <button onClick={restar} >-</button>
-                <button onClick={sumar}>+</button>
+            
+                <div className='row d-flex justify-content-center'>
+                <button className='btn btn-danger col-1' onClick={restar} >-</button>
+                <p  id='counter' className='col-1'>{count}</p>
+                <button className='btn btn-danger col-1' onClick={sumar}>+</button>
+                
                 <br />
-                <button onClick={addToCart}>Comprar</button>
-            </div>
+                <button className='btn btn-danger mt-3' onClick={addToCart}>Comprar</button>
+                </div>
         
         </div>
     );

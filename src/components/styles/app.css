@@ -1,0 +1,15 @@
+body, .bg-black {
+    background-color: rgb(20, 20, 20);
+}
+
+p, h1, h2, h3 {
+    color: white
+}
+
+.bg-purple {
+    background-color: rgb(66, 0, 66);
+}
+
+.float-right {
+    justify-content: center;
+}

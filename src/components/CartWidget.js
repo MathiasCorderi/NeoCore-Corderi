@@ -1,10 +1,11 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
+//import './styles/NavBar.css'
 
 const CartWidget = ({prod}) => {
     
     return  <NavLink to='/cart'>
-    Carrito ({prod})
+    <li>Carrito ({prod})</li>
     </NavLink> 
     ;
 }

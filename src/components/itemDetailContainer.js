@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ItemDetail from './itemDetail';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { firestore } from '../firebase';
+import ItemCount from './ItemCount';
 
 const itemDetailContainer = () => {
     
@@ -37,7 +38,11 @@ const itemDetailContainer = () => {
     
    
     return (
-            <ItemDetail detalle={stateDetails}/>    
+            <div className='container mt-5'>
+                
+                <ItemDetail detalle={stateDetails}/>
+                
+            </div>
     );
 }
 

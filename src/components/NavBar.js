@@ -11,13 +11,16 @@ const NavBar = () => {
 
     return ( 
         <header>
-        <nav className='nav'>
-           
-             <NavLink to='/' style={{ textDecoration: 'none' }}><h1>Neocore</h1></NavLink>
-        <ul>
-            <li><NavLink to="/categoria/1">Categoria 1</NavLink></li>
-            <li><NavLink to="/categoria/2">Categoria 2</NavLink></li>
-           {productos > 0 ? <li><CartWidget prod={productos}/></li> :null}
+        <nav id='menu'>
+          <ul> 
+            <li> <NavLink to='/' style={{ textDecoration: 'none' }}><h1>Neocore</h1></NavLink></li>
+        
+            <li className='submenu' style={{ display: 'block' }}>Categorías
+            <ul>
+           <NavLink to="/placas"> <li>Placas de Video</li></NavLink>
+           <NavLink to="/cpu"><li>CPU</li></NavLink></ul></li>
+
+           {productos > 0 ? <CartWidget prod={productos}/> :null}
         </ul>
         </nav>
         </header>

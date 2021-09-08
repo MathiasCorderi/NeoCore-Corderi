@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ItemList = ({prod}) => {
    
-   console.log(prod)
-
     return (
 
         <div className='row'>

@@ -1,18 +1,7 @@
-h3 {
-   font-size: 36px;
-   text-align: center;
-}
-
-.counterButtons {
+#counter {
+    color: white;
+    font-size: 20px;
     text-align: center;
+    font-weight: 900;
 }
 
-.counterButtons button {
-    padding: 10px;
-    margin: 5px;
-    background-color: purple;
-    border-radius: 50%;
-    border: none;
-    font-size: 24px;
-   
-}

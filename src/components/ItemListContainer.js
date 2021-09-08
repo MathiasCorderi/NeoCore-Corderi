@@ -7,9 +7,6 @@ const ItemListContainer = () => {
     const [stateProd, setState] = useState([])
     const params = useParams()
     const paramsId = params.id
-    
-   
-
 
     useEffect(() => { 
        
@@ -21,7 +18,7 @@ const ItemListContainer = () => {
    
 if (params.id) {
     
-    const filtro = productos.where('id', '==', paramsId)
+    const filtro = productos.where('categoria', '==', paramsId)
     var query = filtro.get() 
 
 } else {
@@ -52,12 +49,12 @@ if (params.id) {
         
        
 
-    }, [])
+    }, [paramsId])
 
   
     
     return (
-        <div className='row'>
+        <div className='row m-5'>
             <ItemList prod={stateProd}/>
         </div>
     );
