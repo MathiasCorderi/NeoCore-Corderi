@@ -1,0 +1,16 @@
+.detalles {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.botones button {
+    margin-left: 15px;
+    margin-right: 15px;
+}

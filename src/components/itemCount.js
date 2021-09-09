@@ -1,20 +1,33 @@
 import React from 'react';
 import './styles/itemCount.css'
-import { Link } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { CartContext } from './CartContextProvider';
 
 
 const itemCount = ({stock , initial, addCartNumber}) => {
-    
-    const[count, setCount] = useState(initial);
-    const {cart, setCart} = useContext(CartContext);
    
+
+    const[count, setCount] = useState(initial);
+    const[stockActual, setStockActual] = useState();
+    const {cart, setCart} = useContext(CartContext);
     
+    useEffect(() => {
+        if(stock != undefined) {
+            setStockActual(stock)
+        }
+    }, [stock])
+ 
 
    const sumar = () => {
-       if (count < stock) {
+       if(stockActual == undefined) {
+        if (count < stock) {
            setCount(count + 1)
+       }}
+
+       else {
+        if (count < stockActual) {
+            setCount(count + 1)
+        }
        }
    }
    
@@ -26,9 +39,12 @@ const itemCount = ({stock , initial, addCartNumber}) => {
 
    const addToCart = () => {
        addCartNumber(count)
+       setStockActual(stockActual - count)
+       setCount(1)
+       console.log(stockActual)
     }
 
- 
+if(stockActual != 0){
 
     return (
 
@@ -41,14 +57,30 @@ const itemCount = ({stock , initial, addCartNumber}) => {
                 <button className='btn btn-danger col-1' onClick={sumar}>+</button>
                 
                 <br />
-                <button className='btn btn-danger mt-3' onClick={addToCart}>Comprar</button>
+                {stockActual == undefined ? <button  className='btn btn-danger mt-3 disabled' onClick={addToCart}>Comprar</button> : <button  className='btn btn-danger mt-3' onClick={addToCart}>Comprar</button>}
                 </div>
         
         </div>
     );
 
 
+}
 
+else {
+
+    return (
+        <div className='row d-flex justify-content-center'>
+                
+                <p  id='counter'>No hay stock!</p>
+                
+                
+                <br />
+                <button className='btn btn-danger disabled mt-3' onClick={addToCart}>Comprar</button>
+                </div>
+
+    )
+
+}
 
 
 }

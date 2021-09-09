@@ -9,6 +9,7 @@ export const CartProvider = (props) => {
   const [cart, setCart] = useState([]);
   const [total, setTotal] = useState(0)
   const [productos, setProductos] = useState(0)
+  const [hayForm, setHayForm] = useState(false)
 
 
   const addToCart = (producto, count, cart) => {
@@ -70,6 +71,7 @@ const limpiarCart = (cart, setCart) => {
     }
     setCart(carritoActual)
   }
+
 
 
 
