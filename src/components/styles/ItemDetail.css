@@ -1,0 +1,10 @@
+.cartel {
+    position: absolute;
+    left: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 200vh;
+    height: 50vh;
+}

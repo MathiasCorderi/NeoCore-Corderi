@@ -14,3 +14,13 @@
     margin-left: 15px;
     margin-right: 15px;
 }
+
+.cartelToken {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 200vh;
+    height: 50vh;
+    background: rgb(66, 0, 66);
+}

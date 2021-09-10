@@ -8,6 +8,8 @@ const ItemListContainer = () => {
     const params = useParams()
     const paramsId = params.id
 
+    
+
     useEffect(() => { 
        
 
@@ -40,6 +42,7 @@ if (params.id) {
         const dataFinal = {id, ...data} 
        
         productosParseado.push(dataFinal)
+
 
     })
 

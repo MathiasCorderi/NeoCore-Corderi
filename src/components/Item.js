@@ -8,6 +8,8 @@ const Item = ({producto, detail, addCartNumber}) => {
 
 
 
+ 
+
     return (
       
         <div className= {detail ? "card text-white bg-black col-8 col-md-8 col-lg-6 mb-3 bg-black" : "card text-white bg-black col-8 col-md-4 col-lg-2 mb-3 bg-black"}>

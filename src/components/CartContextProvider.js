@@ -10,6 +10,7 @@ export const CartProvider = (props) => {
   const [total, setTotal] = useState(0)
   const [productos, setProductos] = useState(0)
   const [hayForm, setHayForm] = useState(false)
+  const [idDetalle, setIdDetalle] = useState(false)
 
 
   const addToCart = (producto, count, cart) => {
@@ -77,7 +78,7 @@ const limpiarCart = (cart, setCart) => {
 
 
   return (
-    <CartContext.Provider value={{cart, setCart, addToCart, limpiarCart, total, setTotal, limpiarItem, productos}}>
+    <CartContext.Provider value={{cart, setCart, addToCart, limpiarCart, total, setTotal, limpiarItem, productos, idDetalle, setIdDetalle}}>
       {props.children}
     </CartContext.Provider>
   )

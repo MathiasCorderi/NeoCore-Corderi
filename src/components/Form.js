@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import './styles/Form.css'
 import { CartContext } from './CartContextProvider';
 
-const Form = ({enviarForm}) => {
+const Form = ({enviarForm, cerrarForm})=> {
 
 
 
@@ -11,10 +11,11 @@ const Form = ({enviarForm}) => {
 
 
     return (
-        <div className='d-flex justify-content-center'>
+        <div className='d-flex justify-content-center form-container'>
         
-        <div className="text-white col-12 col-md-4 p-5 rounded-0 bg-purple">
-        <button className='x'>X</button>
+        <div className='row'>
+        <div className="text-white col-12 rounded-0 bg-purple">
+        <button className='x' onClick={cerrarForm}>X</button>
         <form>
          <div className="mb-3">
              <label for="name" className="form-label">Nombre y Apellido</label>
@@ -46,7 +47,7 @@ const Form = ({enviarForm}) => {
              </div>
              <button type="submit" className="btn btn-outline-danger" onClick={enviarForm}>Enviar</button>
      </form>
- </div>
+ </div></div>
 </div>
 
 
