@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-import { firestore } from '../firebase';
+import { firestore } from '../Firebase';
 
 const ItemListContainer = () => {
     const [stateProd, setState] = useState([])
@@ -37,9 +37,9 @@ if (params.id) {
         
         
 
-        const id = f.id
+        const idFirebase = f.id
         const data = f.data()
-        const dataFinal = {id, ...data} 
+        const dataFinal = {idFirebase, ...data} 
        
         productosParseado.push(dataFinal)
 
@@ -47,7 +47,6 @@ if (params.id) {
     })
 
     setState(productosParseado)
-    console.log(productosParseado)
     })
         
        

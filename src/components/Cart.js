@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import { CartContext } from './CartContextProvider';
 import CartItem from './CartItem';
 import { Link } from 'react-router-dom';
-import { firestore } from '../firebase';
+import { firestore } from '../Firebase';
 import './styles/Cart.css'
 import Form from './Form';
 
@@ -14,8 +14,8 @@ const Cart = () => {
     const [token, setToken] = useState(false)
    
 
-    const limpiarCart2 = () => limpiarCart(cart, setCart)
-    const limpiarItem2 = (e) => limpiarItem(e.target, cart, setCart)
+    const limpiarCartParams = () => limpiarCart(cart, setCart)
+    const limpiarItemParams = (e) => limpiarItem(e.target, cart, setCart)
     
 
     
@@ -23,8 +23,7 @@ const Cart = () => {
         const db = firestore;
         const collection = db.collection('compras')
 
-             const enviarForm = (e) => {
-                e.preventDefault()
+             const enviarForm = () => {
                
                 let info = {
                     nombre: document.getElementById('nombre').value,
@@ -56,15 +55,19 @@ const Cart = () => {
 if (cart.length > 0) {
 
     return (
-        <div className='row'>
+        <div className='row justify-content-center mx-3'>
            {cart.map( p =>
-            <CartItem nombre={p.nombre} inCart={p.inCart} total={p.precio * p.inCart} id={p.id} limpiar={limpiarItem2}/>)}
-            <h3 className='mx-3'>Total: <span className='total'>${total}</span></h3>
-            <div className='botones d-flex justify-content-between'>
-            <button className='btn btn-danger' onClick={limpiarCart2}>Limpiar el carrito</button> 
-            <button className='btn btn-danger' onClick={abrirForm}>Comprar!</button>
+            <CartItem nombre={p.nombre} inCart={p.inCart} total={p.precio * p.inCart} id={p.id} limpiar={limpiarItemParams}/>)}
+            <div className='justify-content-between'>
+            <h3>Total: <span className='d-flex justify-content-end total'>${total}</span></h3>
+           
             </div>
-            {hayForm == true ? <Form enviarForm={enviarForm} cerrarForm={cerrarForm}/> : null}
+            
+            <div className='botones d-flex justify-content-between my-4 mx-0'>
+            <button className='btn btn-danger mx-0' onClick={limpiarCartParams}>Limpiar el carrito</button> 
+            <button className='btn btn-danger mx-0' onClick={abrirForm}>Comprar!</button>
+            </div>
+            {hayForm === true ? <Form enviarForm={enviarForm} cerrarForm={cerrarForm}/> : null}
         </div>
         
     )}
@@ -73,8 +76,8 @@ if (cart.length > 0) {
     
         return (
       
-      token !== false ? <div className='cartelToken'><h2>Este es su Token: </h2><br/><h3>{token}</h3> </div> : <div className='cartelToken'><h2>Estamos procesando su compra...</h2></div> 
-       
+            
+            token !== false ? <div className='cartelToken'><h2>Este es su Token: </h2><br/><h3>{token}</h3> <Link to ='/'><button className='btn btn-danger bg-purple my-3'>	← Volver a la tienda</button></Link></div> : <div className='cartelToken'><h2>Estamos procesando su compra...</h2></div> 
          )
 
 

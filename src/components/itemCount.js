@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles/itemCount.css'
-import { useContext, useState, useEffect } from 'react';
-import { CartContext } from './CartContextProvider';
+import './styles/ItemCount.css'
+import { useState, useEffect } from 'react';
+
 
 
 const itemCount = ({stock , initial, addCartNumber}) => {
@@ -9,17 +9,17 @@ const itemCount = ({stock , initial, addCartNumber}) => {
 
     const[count, setCount] = useState(initial);
     const[stockActual, setStockActual] = useState();
-    const {cart, setCart} = useContext(CartContext);
+    
     
     useEffect(() => {
-        if(stock != undefined) {
+        if(stock !== undefined) {
             setStockActual(stock)
         }
     }, [stock])
  
 
    const sumar = () => {
-       if(stockActual == undefined) {
+       if(stockActual === undefined) {
         if (count < stock) {
            setCount(count + 1)
        }}
@@ -41,10 +41,9 @@ const itemCount = ({stock , initial, addCartNumber}) => {
        addCartNumber(count)
        setStockActual(stockActual - count)
        setCount(1)
-       console.log(stockActual)
     }
 
-if(stockActual != 0){
+if(stockActual !== 0){
 
     return (
 
@@ -57,7 +56,7 @@ if(stockActual != 0){
                 <button className='btn btn-danger col-1' onClick={sumar}>+</button>
                 
                 <br />
-                {stockActual == undefined ? <button  className='btn btn-danger mt-3 disabled' onClick={addToCart}>Comprar</button> : <button  className='btn btn-danger mt-3' onClick={addToCart}>Comprar</button>}
+                {stockActual === undefined ? <button  className='btn btn-danger mt-3 disabled' onClick={addToCart}>Comprar</button> : <button  className='btn btn-danger mt-3' onClick={addToCart}>Comprar</button>}
                 </div>
         
         </div>

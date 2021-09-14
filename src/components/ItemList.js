@@ -1,6 +1,5 @@
 import React from 'react';
 import Item from './Item';
-import { Link } from 'react-router-dom';
 
 const ItemList = ({prod}) => {
    
@@ -8,7 +7,7 @@ const ItemList = ({prod}) => {
 
         <div className='row'>
         {prod.map( p =>
-        <Item key={p.id} producto={p}/>
+        <Item producto={p}/>
         )}
         </div>
     );

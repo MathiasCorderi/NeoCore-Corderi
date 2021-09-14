@@ -5,11 +5,6 @@
     font-weight: bolder;
 }
 
-.total {
-    display: flex;
-    justify-content: flex-end;
-}
-
 .botones button {
     margin-left: 15px;
     margin-right: 15px;
@@ -20,7 +15,15 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    width: 200vh;
+    width: 100%;
     height: 50vh;
     background: rgb(66, 0, 66);
+}
+
+.total {
+    float: right
+}
+
+.detalles p{
+    float:right;
 }

@@ -1,15 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import ItemDetail from './itemDetail';
+import ItemDetail from './ItemDetail';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { firestore } from '../firebase';
-import ItemCount from './ItemCount';
+import { firestore } from '../Firebase';
 
-const itemDetailContainer = () => {
+
+const ItemDetailContainer = () => {
+
+    
     
     const [stateDetails, setDetails] = useState(false)
     const params = useParams()
 
-
+    
     
     const paramsId = params.id
     
@@ -23,14 +25,13 @@ const itemDetailContainer = () => {
    
 
     
-    const filtro = productos.where('id', '==', paramsId)
+    const filtro = productos.doc(paramsId)
     const query = filtro.get() 
     
-    query.then((e) =>{ e.forEach(f => {
-    const data = f.data();
+    query.then((e) =>{ 
+    const data = e.data();
     setDetails(data)
-    console.log(data)
-    })})
+    })
         
        
 
@@ -46,4 +47,4 @@ const itemDetailContainer = () => {
     );
 }
 
-export default itemDetailContainer;
+export default ItemDetailContainer;

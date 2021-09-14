@@ -53,5 +53,8 @@ li {
     height: 50px!important;
 }
 
-
+.cartImg {
+    max-width: 40px;
+    max-height: 40px;
+}
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom'
-//import './styles/NavBar.css'
 
 const CartWidget = ({prod}) => {
     
     return  <NavLink to='/cart'>
-    <li>Carrito ({prod})</li>
+    <li><img className='cartImg' src='https://www.iconninja.com/files/609/434/345/buy-shopping-commerce-cart-shopping-cart-icon.png' alt='carrito'/><span className='badge badge-secondary'>({prod})</span></li>
     </NavLink> 
     ;
 }

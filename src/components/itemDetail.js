@@ -1,5 +1,4 @@
 import React from 'react';
-import ItemCount from './ItemCount'
 import { useState, useContext } from 'react';
 import { CartContext } from './CartContextProvider';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,7 @@ const ItemDetail = ({detalle}) => {
     
     const [cartNumber, setCartNumber] = useState(false)
     const { addToCart } = useContext(CartContext);
-    const { cart, setCart } = useContext(CartContext);
+    const { cart } = useContext(CartContext);
 
    
     const addCartNumber = (e) => {

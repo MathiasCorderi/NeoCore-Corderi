@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Acerca de Neocore
+Neocore es un proyecto de React.js, su objetivo es simular un ecommerce en donde uno pueda comprar artículos, simular un carrito de compras y enviar el pedido a la base de datos de Firestore por medio de un form.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+##Convenciones
+Todos los componentes son del tipo funcional y usan una nomenclatura con PascalCase, se encuentran dentro de una carpeta llamada components (a excepción de App y la configuración de firebase), y tienen sus respectivos estilos en otro archivo css del mismo nombre que se encuentra en una carpeta llamada Style (App tiene su archivo dentro de src para que compartan carpeta). El resto de funciones y variables tienen su nomenclatura con camelCase.
 
-In the project directory, you can run:
+---
+##Liberías
 
-### `npm start`
+####Bootstrap 5.0.2
+Dado que el propósito del proyecto es poder crear una aplicación funcional en React.Js y no su diseño en sí, me ayudé de bootstrap para facilitar el maquetado y poder centrarme en el desarrollo adecuado de los componentes y funcionalidades.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+##Principales componentes
+####ItemListContainer, ItemList e Item
+Son los componentes encargados de crear el catálogo, ILC se encarga de realizar el pedido, mientras que IL realiza la lista de Items, dependiendo de en qué categoría nos encontremos el ILC realizará un llamado u otro a la base de datos para traer sólo los artículos que corresponden a la sección en la que nos encontramos.
 
-### `npm test`
+####ItemDetailContainer, ItemDetail, Item y Count
+Estos componentes tienen la tarea de mostrar el detalle del producto y permitirnos añadirlos al carro, IDC se encarga de realizar un único pedido a la base de datos por medio de un .doc, mientras que ItemDetail reutiliza el componente Item y por medio de condicionales le cambia los botones de compra y detalle para mostrar un contador que nos permite sumar los artículos que queramos y agregarlos al carro. Dicho contador cuenta con una función para calcular el stock.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+####Cart, CartItem y CartContext
+Cart será nuestra vista del carrito, esta se compone de un CartItem por cada item en el carro, donde cada uno muestra su cantidad de productos y su individual, y abajo muestra el total final a pagar con un botón que activa un form en formato PopUp donde uno puede cargar sus datos para enviarlos a la base de datos. Todas las funciones del carrito están alojadas en el CartContext
 
-### `npm run build`
+####Navbar
+La barra de navegación que cuenta con el nombre del proyecto, el cual nos redirige a la home, un menú desplegable de categorías, que nos permite acceder a las categorías que querramos filtrar y un widget que nos lleva al carrito y nos muestra cuantos productos tenemos dentro de el, el cual por medio de un condicional, sólo se muestra cuando empecemos a cargar el mismo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
+##Cómo levantar la aplicación
+Necesitarás tener Node >= 10.16 y npm >= 5.6 instalados en tu máquina. Para levantar el proyecto proyecto ejecuta:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+>npx create-react-app neocore
+cd neocore
+npm start
