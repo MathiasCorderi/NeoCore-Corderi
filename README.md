@@ -32,5 +32,5 @@ La barra de navegación que cuenta con el nombre del proyecto, el cual nos redir
 Necesitarás tener Node >= 10.16 y npm >= 5.6 instalados en tu máquina. Para levantar el proyecto proyecto ejecuta:
 
 >npx create-react-app neocore
-cd neocore
-npm start
+>cd neocore
+>npm start
